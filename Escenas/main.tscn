@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cutrxc2ko5vjw"]
+
+[ext_resource type="PackedScene" uid="uid://b7thybhh54e56" path="res://Escenas/mapa.tscn" id="1_6lbni"]
+
+[node name="Main" type="Node2D" unique_id=285156877]
+metadata/_edit_lock_ = true
+
+[node name="Mapa" parent="." unique_id=1110188678 instance=ExtResource("1_6lbni")]
