@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdna7ijgp6vqo"
-path="res://.godot/imported/Deer_Idle_with_shadow.png-7634071366f7fbc34d6e1e349617012f.ctex"
+uid="uid://dj4ut23hgr3pp"
+path="res://.godot/imported/Deer_Hurt_with_shadow.png-d5f183e8b9ec9216d44f59cbed5c5615.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Animales/Deer_Idle_with_shadow.png"
-dest_files=["res://.godot/imported/Deer_Idle_with_shadow.png-7634071366f7fbc34d6e1e349617012f.ctex"]
+source_file="res://Sprites/Animales/Ciervo/Deer_Hurt_with_shadow.png"
+dest_files=["res://.godot/imported/Deer_Hurt_with_shadow.png-d5f183e8b9ec9216d44f59cbed5c5615.ctex"]
 
 [params]
 
