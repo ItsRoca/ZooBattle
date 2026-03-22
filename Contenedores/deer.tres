@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://c6mosrhgoy5vg"]
+
+[ext_resource type="Script" uid="uid://de0uqjund6hr3" path="res://Scripts/Animales/unit_stats.gd" id="1_ct8bd"]
+
+[resource]
+script = ExtResource("1_ct8bd")
+name = "Deer"
+metadata/_custom_type_script = "uid://de0uqjund6hr3"

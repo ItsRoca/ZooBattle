@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bcmffpo0yblc1"]
 
 [ext_resource type="Texture2D" uid="uid://bgq8uvu81l1i" path="res://Sprites/Animales/Ciervo/Deer_Death_with_shadow.png" id="1_5mowf"]
+[ext_resource type="Script" uid="uid://crw6ojl7x6uxn" path="res://Scripts/Animales/deer.gd" id="1_xdxkv"]
+[ext_resource type="Resource" uid="uid://c6mosrhgoy5vg" path="res://Contenedores/deer.tres" id="2_1ll7g"]
 [ext_resource type="Texture2D" uid="uid://dj4ut23hgr3pp" path="res://Sprites/Animales/Ciervo/Deer_Hurt_with_shadow.png" id="2_xdxkv"]
 [ext_resource type="Texture2D" uid="uid://cdna7ijgp6vqo" path="res://Sprites/Animales/Ciervo/Deer_Idle_with_shadow.png" id="3_1ll7g"]
 [ext_resource type="Texture2D" uid="uid://j60loiqs4xrt" path="res://Sprites/Animales/Ciervo/Deer_Run_with_shadow.png" id="4_g1iul"]
@@ -899,23 +901,25 @@ expand_margin_bottom = 1.0
 bg_color = Color(0.19215687, 0.7647059, 0.8666667, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1390927316]
+script = ExtResource("1_xdxkv")
+stats = ExtResource("2_1ll7g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=135538627]
-position = Vector2(16, 8)
 sprite_frames = SubResource("SpriteFrames_dikxw")
 animation = &"IdleF"
 autoplay = "IdleF"
+offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023868065]
-position = Vector2(16, 8)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_ni4vh")
 one_way_collision_margin = 27.5
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=70791400]
-offset_left = 2.0
-offset_top = -17.0
-offset_right = 30.0
-offset_bottom = -13.0
+offset_left = -14.0
+offset_top = -32.0
+offset_right = 14.0
+offset_bottom = -28.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ci1v8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_837ff")
 value = 100.0
@@ -923,10 +927,10 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="ManaBar" type="ProgressBar" parent="." unique_id=11368626]
-offset_left = 2.0
-offset_top = -12.0
-offset_right = 30.0
-offset_bottom = -10.0
+offset_left = -14.0
+offset_top = -27.0
+offset_right = 14.0
+offset_bottom = -25.0
 theme_override_styles/background = SubResource("StyleBoxFlat_4fenh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_j3otd")
 value = 75.0
