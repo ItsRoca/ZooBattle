@@ -936,3 +936,5 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_j3otd")
 value = 75.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1128183253]

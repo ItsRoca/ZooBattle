@@ -7,6 +7,7 @@ extends Node2D
 var occupied_cells: Dictionary = {}
 
 const Unit = preload("res://Escenas/deer.tscn")
+const DeerStats = preload("res://Contenedores/deer.tres")
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -35,3 +36,11 @@ func _place_unit(cell: Vector2i, tilemap: TileMapLayer):
 	
 	# Registrar la celda como ocupada
 	occupied_cells[cell] = unit
+	
+func _ready():
+	# Enemigo de prueba
+	var enemy = Unit.instantiate()
+	enemy.is_enemy = true # Hay que asignarlo antes de "add_child", si no se daña a si mismo
+	add_child(enemy)
+	enemy.stats = DeerStats
+	enemy.global_position = Vector2(300, 300)
