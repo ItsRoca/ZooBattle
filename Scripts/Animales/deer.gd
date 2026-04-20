@@ -2,11 +2,17 @@ extends CharacterBody2D
 
 @export var stats: UnitStats: set = set_stats
 
+# Celda que ocupa la unidad en el tablero
+var current_cell: Vector2i
+
 # Indica si la unidad es enemiga o aliada
 var is_enemy: bool = false
 
 # Vida actual de la unidad
 var current_health: float
+
+# Señal que se emite cuando la unidad muere
+signal unit_died(unit)
 
 @onready var skin: AnimatedSprite2D = $Skin
 @onready var health_bar: ProgressBar = $HealthBar
@@ -45,6 +51,7 @@ func take_damage(damage: float) -> void:
 
 # Muerte
 func die() -> void:
+	unit_died.emit(self)
 	print(stats.name, " ha muerto")
 	queue_free()
 	
@@ -61,9 +68,10 @@ func _ready():
 
 func _on_attack_timer_timeout():
 	target = _find_nearest_target()
-	if target:
-		target.take_damage(stats.physical_damage)
-	
+	if target and is_instance_valid(target):
+		var distance = global_position.distance_to(target.global_position)
+		if distance <= stats.attack_range * 32:
+			target.take_damage(stats.physical_damage)
 	
 # Objetivo actual de la unidad
 var target: CharacterBody2D = null
@@ -84,4 +92,19 @@ func _find_nearest_target() -> CharacterBody2D:
 			nearest = unit
 	
 	return nearest
+	
+func _physics_process(delta: float) -> void:
+	if target and is_instance_valid(target):
+		var distance = global_position.distance_to(target.global_position)
+		if distance > stats.attack_range * 32:
+			# Moverse hacia el objetivo
+			var direction = (target.global_position - global_position).normalized()
+			velocity = direction * 50.0  # velocidad en píxeles por segundo
+		else:
+			# Dentro de rango, detenerse
+			velocity = Vector2.ZERO
+	else:
+		velocity = Vector2.ZERO
+	
+	move_and_slide()
 	

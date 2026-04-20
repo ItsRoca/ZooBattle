@@ -36,6 +36,12 @@ func _place_unit(cell: Vector2i, tilemap: TileMapLayer):
 	
 	# Registrar la celda como ocupada
 	occupied_cells[cell] = unit
+	unit.current_cell = cell  # Guardar la celda en la unidad
+	unit.unit_died.connect(_on_unit_died)  # Conectar la señal
+	occupied_cells[cell] = unit
+	
+func _on_unit_died(unit) -> void:
+	occupied_cells.erase(unit.current_cell)
 	
 func _ready():
 	# Enemigo de prueba
